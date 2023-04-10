@@ -1,0 +1,66 @@
+import /system/etc/init/hw/init.oneplusparts.rc
+
+on init
+    mount none /vendor/lost+found /vendor/overlay bind
+    mount none /vendor/etc/audio_effects.xml /odm/etc/audio_effects.xml bind
+    setprop sys.usb.ffs.aio_compat 1
+    setprop persist.vendor.vilte_support 0
+
+    # ZRAM setup
+    write /sys/block/zram0/comp_algorithm lz4
+    write /proc/sys/vm/page-cluster 0
+
+on post-fs-data
+    # Services
+    stop console
+
+on post-fs
+
+on property:init.svc.face_hal=restarting
+    stop face_hal
+
+on property:sys.boot_completed=1
+    # ZRAM
+    rm /data/unencrypted/zram_swap
+    swapon_all /vendor/fstab.enableswap
+    write /proc/sys/vm/swappiness 70
+    # switch to schedutil
+    write /sys/devices/system/cpu/cpufreq/policy0/scaling_governor "schedutil"
+    write /sys/devices/system/cpu/cpufreq/policy4/scaling_governor "schedutil"
+
+    # start EAS+
+    write /sys/devices/system/cpu/eas/enable 1
+
+    # Touchpanel
+    write /proc/touchpanel/oplus_tp_limit_enable 0
+    write /proc/touchpanel/oplus_tp_direction 1
+
+service prop-adap-core-gsi /odm/bin/self-init gsicore
+    class core
+    user root
+    group root system radio
+    oneshot
+    override
+    disabled
+
+service prop-adap-main-gsi /odm/bin/self-init gsimain
+    class main
+    user root
+    group root system radio
+    oneshot
+    override
+    disabled
+
+service aee_aedv /system/bin/true
+    oneshot
+    disabled
+
+service aee_aedv64 /system/bin/true
+    oneshot
+    disabled
+
+on property:persist.sys.dt2w=0
+    write /proc/touchpanel/double_tap_enable 0
+
+on property:persist.sys.dt2w=1
+    write /proc/touchpanel/double_tap_enable 1
