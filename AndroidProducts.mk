@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/arrow_karen.mk
+    $(LOCAL_DIR)/lineage_karen.mk
 
 COMMON_LUNCH_CHOICES := \
-    arrow_karen-eng \
-    arrow_karen-userdebug \
-    arrow_karen-user
+    lineage_karen-eng \
+    lineage_karen-userdebug \
+    lineage_karen-user
