@@ -16,4 +16,4 @@ The OnePlus Nord 2T 5G Codename is Karen
 | Camera (Back)(Main)     | 50 MP, f/1.9, 24mm (wide), 1/1.56", 1.0µm, PDAF, OIS ,8 MP, f/2.3, 119˚ (ultrawide) 2 MP, f/2.4, (monochrome)                  |                                            
 | Camera (Front)          | 32 MP, f/2.5, (wide), 1/2.8", 0.8µm                                                                                            |
 
-![image](https://www.gsmarena.com/oneplus_nord_2t-pictures-11517.php)
+![image](https://fdn2.gsmarena.com/vv/pics/oneplus/oneplus-nord-2t-5g-1.jpg)
