@@ -27,7 +27,7 @@ lib64/libaptXHD_encoder.so
 bin/vtservice
 etc/init/init.vtservice.rc
 framework/mediatek-ims-extension-plugin.jar
-framework/mediatek-ims-legacy.jar
+framework/mediatek-ims-common.jar
 lib/libmtk_vt_service.so
 lib/libmtk_vt_wrapper.so
 lib/libmtkavenhancements.so
