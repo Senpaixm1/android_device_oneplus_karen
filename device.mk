@@ -202,7 +202,3 @@ PRODUCT_PACKAGES += \
     TetheringConfigOverlay \
     WifiOverlay
 
-#Prebuilt kernel
-TARGET_PREBUILT_KERNEL := device/oneplus/pre-kernel/zImage
-PRODUCT_COPY_FILES += \
-    $(TARGET_PREBUILT_KERNEL):kernel
